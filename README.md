@@ -12,19 +12,20 @@
 - 支持 `全部 / 最热 / 技术 / 创意 / 好玩 / Apple / 酷工作` 标签。
 - 标签按 V2EX `tab` 规则加载，例如 `全部 -> https://www.v2ex.com/?tab=all`。
 - 帖子列表按最后活跃时间倒序，展示评论数和最后更新时间（最后一条评论时间）。
-<img width="1510" height="1586" alt="image" src="https://github.com/user-attachments/assets/c87db950-8bd8-45bc-b0ab-0fc352228262" />
+<img width="504" height="892" alt="image" src="https://github.com/user-attachments/assets/5c78fe9c-805a-48a6-a092-4ce1603776fb" />
+
 
 ### 2. 搜索（内置浏览器模式）
 - 点击“搜索”后，直接在 IDEA 内置浏览器打开 Google 搜索结果页（`site:v2ex.com/t`）。
 - 在结果页点击帖子链接，会被插件拦截并进入详情解析页。
 - 搜索页内置 `返回首页 / 后退 / 前进 / 刷新`，不用来回切窗口。
-<img width="1422" height="1462" alt="image" src="https://github.com/user-attachments/assets/4da98171-870b-4359-836a-94c67c54437d" />
+<img width="524" height="822" alt="image" src="https://github.com/user-attachments/assets/2dc8c94b-b453-44ff-a9af-4ee02603623d" />
 
 ### 3. 帖子详情 + 评论
 - 点击帖子进入详情，正文和评论可滚动查看。
 - 支持图片解析（帖子与评论中的图片都可显示）。
 - 详情页支持“刷新详情”和“浏览器打开”。
-<img width="1482" height="1496" alt="image" src="https://github.com/user-attachments/assets/322a106d-6f61-45a4-ad8a-112104f5d474" />
+<img width="524" height="848" alt="image" src="https://github.com/user-attachments/assets/66f58894-8d62-4423-a765-6b1c2b20b465" />
 
 ### 4. 评论（可选登录态）
 - 支持配置 `A2 Token` 后在插件内发表评论。

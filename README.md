@@ -11,7 +11,6 @@
 ### 1. 首页刷帖
 - 支持 `全部 / 最热 / 技术 / 创意 / 好玩 / Apple / 酷工作` 标签。
 - 标签按 V2EX `tab` 规则加载。
-- 帖子列表按最后活跃时间倒序，展示评论数和最后更新时间（最后一条评论时间）。
 <img width="504" height="892" alt="image" src="https://github.com/user-attachments/assets/5c78fe9c-805a-48a6-a092-4ce1603776fb" />
 
 

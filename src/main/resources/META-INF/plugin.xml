@@ -1,0 +1,41 @@
+<idea-plugin>
+    <id>com.v2ex.idea.reader</id>
+    <name>V2EX Reader</name>
+    <vendor email="support@example.com" url="https://www.v2ex.com">V2EX Reader Contributors</vendor>
+
+    <description><![CDATA[
+        在 IntelliJ IDEA 内查看 V2EX 最新/最热帖子、帖子评论并支持搜索。
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow
+                id="V2EX"
+                anchor="right"
+                factoryClass="com.v2ex.idea.ui.V2exToolWindowFactory"
+                icon="AllIcons.Webreferences.Server"/>
+        <applicationService serviceImplementation="com.v2ex.idea.settings.V2exSettingsStateService"/>
+        <projectService serviceImplementation="com.v2ex.idea.service.V2exProjectStateService"/>
+        <applicationConfigurable
+                parentId="tools"
+                id="settings.v2ex.reader"
+                displayName="V2EX Reader"
+                instance="com.v2ex.idea.settings.V2exSettingsConfigurable"/>
+    </extensions>
+
+    <actions>
+        <action id="V2EX.Refresh"
+                class="com.v2ex.idea.actions.RefreshV2exAction"
+                text="Refresh V2EX"
+                description="刷新当前 V2EX 列表"/>
+        <action id="V2EX.OpenInBrowser"
+                class="com.v2ex.idea.actions.OpenV2exInBrowserAction"
+                text="Open V2EX Topic in Browser"
+                description="在浏览器中打开当前帖子"/>
+        <action id="V2EX.Search"
+                class="com.v2ex.idea.actions.FocusV2exSearchAction"
+                text="Focus V2EX Search"
+                description="聚焦 V2EX 搜索输入框"/>
+    </actions>
+</idea-plugin>

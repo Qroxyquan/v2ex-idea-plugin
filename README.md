@@ -1,94 +1,150 @@
 # V2EX Reader for IntelliJ IDEA
 
-> 写代码累了？  
-> 来 IDE 里“研究一下技术趋势”（懂的都懂）。
+Browse V2EX directly inside IntelliJ IDEA without bouncing between your editor and a browser tab that definitely looks unrelated to work.
 
-一个让你在 IntelliJ IDEA 内优雅刷 V2EX 的插件：  
-不切浏览器、不摸鱼出戏、看帖看评论一条龙。
+V2EX Reader is a Tool Window plugin for developers who want a clean in-IDE reading flow for topics, replies, search results, and lightweight interaction. It is built for IntelliJ IDEA `2024.2+` and targets a simple, fast, read-first experience.
 
-## 这插件能干啥
+## Features
 
-### 1. 首页刷帖
-- 支持 `全部 / 最热 / 技术 / 创意 / 好玩 / Apple / 酷工作` 标签。
-- 标签按 V2EX `tab` 规则加载。
-<img width="504" height="892" alt="image" src="https://github.com/user-attachments/assets/5c78fe9c-805a-48a6-a092-4ce1603776fb" />
+- Browse V2EX feeds from built-in tabs such as `All`, `Hot`, `Tech`, `Creative`, `Play`, `Apple`, and `Jobs`.
+- Load tab content using V2EX tab definitions, for example `all -> https://www.v2ex.com/?tab=all`.
+- Open topic details inside IDEA and scroll through replies in the same view.
+- Display reply count and latest activity time in the topic list.
+- Search V2EX topics through an in-IDE Google results page using `site:v2ex.com/t`.
+- Intercept topic links from the embedded search browser and open them as parsed topic detail pages.
+- Show images from topic content and replies.
+- Post replies inside IDEA when an `A2 Token` is configured.
+- Keep the reply editor collapsed by default so the detail view stays clean.
 
+## Why This Plugin Exists
 
-### 2. 搜索（内置浏览器模式）
-- 点击“搜索”后，直接在 IDEA 内置浏览器打开 Google 搜索结果页（`site:v2ex.com/t`）。
-- 在结果页点击帖子链接，会被插件拦截并进入详情解析页。
-- 搜索页内置 `返回首页 / 后退 / 前进 / 刷新`，不用来回切窗口。
-<img width="524" height="822" alt="image" src="https://github.com/user-attachments/assets/2dc8c94b-b453-44ff-a9af-4ee02603623d" />
+Because context switching is expensive, and because "checking one V2EX thread" somehow always starts with opening a browser and ends with fifteen tabs.
 
-### 3. 帖子详情 + 评论
-- 点击帖子进入详情，正文和评论可滚动查看。
-- 支持图片解析（帖子与评论中的图片都可显示）。
-- 详情页支持“刷新详情”和“浏览器打开”。
-<img width="524" height="848" alt="image" src="https://github.com/user-attachments/assets/66f58894-8d62-4423-a765-6b1c2b20b465" />
+This plugin keeps the whole flow inside IDEA:
 
-### 4. 评论（可选登录态）
-- 支持配置 `A2 Token` 后在插件内发表评论。
-- 评论输入框默认收起，点“写评论”再展开，低调摸鱼不扎眼。
+- browse the homepage feed
+- search without leaving the IDE
+- open a topic
+- read replies
+- optionally reply if you are logged in
 
-## 安装方式
+It is a focused workflow, not a full V2EX client.
 
-1. 在 `build/distributions/` 找到打包好的 zip。  
-2. IDEA -> `Settings` -> `Plugins` -> 齿轮图标 -> `Install Plugin from Disk...`  
-3. 选择 zip 安装并重启 IDEA。
+## Screens and Flow
 
-## 配置说明
+### Home Feed
 
-路径：`Settings -> Tools -> V2EX Reader`
+- Topic list in a Tool Window
+- Tab-based navigation
+- Sorted by latest activity
+- Reply count and activity time shown in each row
 
-- `API Token`：用于 V2EX API 请求（可选，提升稳定性）。
-- `A2 Token`：用于登录态能力（比如发评论）。
+<img width="504" height="892" alt="Home feed" src="https://github.com/user-attachments/assets/5c78fe9c-805a-48a6-a092-4ce1603776fb" />
 
-> 插件不会上传你的项目代码，也不会保存账号密码。  
-> 仅按你填写的 Token 发起 V2EX 请求。
+### Search
 
-## 使用姿势（高效摸鱼版）
+- Search opens an embedded browser inside IDEA
+- Built-in navigation: `Home`, `Back`, `Forward`, `Refresh`
+- Clicking a V2EX topic result opens the parsed topic detail view
 
-1. 打开右侧 Tool Window：`V2EX`。  
-2. 平时看首页标签流。  
-3. 有关键字就直接搜，结果页里点帖进详情。  
-4. 看完一键返回首页，假装刚刚在看 CI 日志。  
+<img width="524" height="822" alt="Search view" src="https://github.com/user-attachments/assets/2dc8c94b-b453-44ff-a9af-4ee02603623d" />
 
-## 兼容性
+### Topic Detail
 
-- IntelliJ Platform Build: `242.*` 到 `252.*`
-- 推荐 IDE：IntelliJ IDEA `2024.2+`
-- 开发构建：JDK 21
+- Topic content rendered inside IDEA
+- Replies shown in a scrollable detail page
+- Image rendering supported for topics and replies
+- `Refresh Detail` and `Open in Browser` actions available
 
-## 本地开发
+<img width="524" height="848" alt="Topic detail" src="https://github.com/user-attachments/assets/66f58894-8d62-4423-a765-6b1c2b20b465" />
+
+## Installation
+
+### Install from ZIP
+
+1. Build the plugin:
 
 ```bash
-# 运行开发版 IDE
-./gradlew runIde
-
-# 运行测试
-./gradlew test
-
-# 打包插件
 ./gradlew buildPlugin
 ```
 
-产物目录：`build/distributions/`
+2. In IntelliJ IDEA, open:
 
-## 常见问题
+```text
+Settings -> Plugins -> Gear Icon -> Install Plugin from Disk...
+```
 
-### 搜索出来不相关？
-- 先点搜索页“刷新”。
-- 更换关键词（英文关键词通常更稳定）。
-- Google 在部分网络环境可能有限制，可稍后重试。
+3. Select the ZIP file from:
 
-### 点进帖子没评论？
-- V2EX API 偶发空评论时，插件会尝试页面解析兜底。
-- 仍为空时，可能是帖子确实无评论或页面结构临时变化。
+```text
+build/distributions/
+```
 
-### 为什么评论按钮不可用？
-- 先在设置里填 `A2 Token`，保存后再打开详情页。
+4. Restart the IDE.
 
-## 免责声明
+## Configuration
 
-本插件为非官方项目，仅用于学习与效率提升。  
-请遵守你所在团队/公司的使用规范，摸鱼需适度，交付要准时。
+Open:
+
+```text
+Settings -> Tools -> V2EX Reader
+```
+
+Available settings:
+
+- `API Token`
+  Used for V2EX API requests. Optional, but recommended for better request stability.
+
+- `A2 Token`
+  Used for logged-in actions such as posting replies.
+
+## Compatibility
+
+- IntelliJ Platform build: `242.*` to `252.*`
+- Recommended IDE: IntelliJ IDEA `2024.2+`
+- Build runtime: `JDK 21`
+
+## Development
+
+Run the plugin in a sandbox IDE:
+
+```bash
+./gradlew runIde
+```
+
+Run tests:
+
+```bash
+./gradlew test
+```
+
+Build the plugin package:
+
+```bash
+./gradlew buildPlugin
+```
+
+## Privacy and Legal
+
+- [Privacy Policy](./PRIVACY_POLICY.md)
+- [EULA](./EULA.md)
+- [License](./LICENSE)
+
+## Notes
+
+- This is an unofficial plugin and is not affiliated with V2EX or JetBrains.
+- Search quality depends on Google result availability in the current network environment.
+- If V2EX changes its page structure, some HTML parsing features may require updates.
+
+## Roadmap
+
+- Better Marketplace presentation assets
+- More robust topic search fallback strategies
+- Additional tabs and richer topic metadata
+- More polished logged-in interactions
+
+## Contact
+
+For feedback or Marketplace-related issues:
+
+`ylinchunquan@outlook.com`

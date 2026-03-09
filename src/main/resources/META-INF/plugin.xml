@@ -1,11 +1,30 @@
 <idea-plugin>
     <id>com.v2ex.idea.reader</id>
     <name>V2EX Reader</name>
-    <vendor email="support@example.com" url="https://www.v2ex.com">V2EX Reader Contributors</vendor>
+    <vendor email="ylinchunquan@outlook.com" url="https://www.v2ex.com">V2EX Reader Contributors</vendor>
 
     <description><![CDATA[
-        在 IntelliJ IDEA 内查看 V2EX 最新/最热帖子、帖子评论并支持搜索。
+        Browse V2EX topics, replies, and search results directly inside IntelliJ IDEA.
+        <br/><br/>
+        Features:
+        <ul>
+          <li>Home feed with V2EX tabs (all/hot/tech/creative/play/apple/jobs)</li>
+          <li>In-IDE Google search flow for V2EX topics</li>
+          <li>Topic detail + reply list with image rendering support</li>
+          <li>Optional reply posting when A2 token is configured</li>
+        </ul>
+        <br/>
+        中文说明：在 IDEA 内查看 V2EX 帖子与评论，支持标签流、搜索、详情与评论查看。
     ]]></description>
+    <change-notes><![CDATA[
+        <h3>0.1.12</h3>
+        <ul>
+          <li>Added in-IDE search browser navigation: Home / Back / Forward / Refresh.</li>
+          <li>Improved search-to-detail flow with topic link interception.</li>
+          <li>Reply editor is collapsed by default for a cleaner detail view.</li>
+          <li>Stability improvements for tab/search request switching.</li>
+        </ul>
+    ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
 
